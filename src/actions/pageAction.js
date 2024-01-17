@@ -10,12 +10,22 @@ export async function savePageSettings(formData){
 
     const session = await getServerSession(authOptions);
     if(session){
-        const displayName = formData.get('displayName')
-        const location = formData.get('location')
-        const bio = formData.get('bio')
+
+        const dataKeys = [
+            'displayName','location',
+            'bio', 'bgType', 'bgColor', 'bgImage',
+        ];
+    
+        const dataToUpdate = {};
+        for (const key of dataKeys) {
+            if (formData.has(key)) {
+                dataToUpdate[key] = formData.get(key);
+            }
+        }
+        
         await Page.updateOne(
             {owner:session?.user?.email},
-            {displayName,location,bio},
+            dataToUpdate,
         );
 
         return true;

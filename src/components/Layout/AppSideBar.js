@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faChartLine, faFileLines, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faChartLine, faFileLines } from '@fortawesome/free-solid-svg-icons';
 import LogoutButton from '@/components/buttons/LogoutButton';
 import { usePathname } from 'next/navigation';
 
@@ -22,12 +22,13 @@ export default function AppSideBar(){
                     fixedWidth={true}
                     className={'w-6 h-6'}
                 />
-                <span >My Page</span>
+                <span>My Page</span>
             </Link>
             <Link href={'/analytics'} 
                 className={'flex gap-3 '  + (path === '/analytics' ? 'text-blue-500 font-bold':'')}
             >
-                <FontAwesomeIcon icon={faChartLine}
+                <FontAwesomeIcon 
+                    icon={faChartLine}
                     fixedWidth={true}
                     className={'w-6 h-6'}
                 />
