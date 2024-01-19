@@ -4,10 +4,15 @@ import Link from 'next/link'
 import LogoutButton from './buttons/LogoutButton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { Page } from '@/models/Page';
 
 export default async function Header(){
     const session = await getServerSession(authOptions);
-    // console.log(session)
+
+    if(session){
+        const page = await Page.findOne({owner:session?.user?.email});
+    }
+
     return (
         <header className='bg-white border-b py-4'>
             <div className='max-w-4xl flex justify-between mx-auto px-6'>
@@ -18,23 +23,23 @@ export default async function Header(){
                     </Link>
 
                     <nav className='flex gap-4 text-gray-500 text-sm items-center'>
-                        <Link href={'/about'}>About</Link>
-                        <Link href={'/pricing'}>Pricing</Link>
-                        <Link href={'/contact'}>Contact</Link>
+                        {/* <Link href={'/about'}>About</Link> */}
+                        {/* <Link href={'/pricing'}>Pricing</Link>
+                        <Link href={'/contact'}>Contact</Link> */}
                     </nav>
                 </div>
 
                 <nav className='flex items-center gap-4 text-sm text-slate-500'>
                     {!!session && (
                         <>
-                            <Link href={'/account'}>Hello , {session?.user?.name} </Link>
+                            <Link href={'/account'}>{page.displayName} </Link>
                             <LogoutButton/>
                         </>
                     ) }
                     {!session && (
                         <>
                             <Link href={'/login'}>Sign in</Link>
-                            <Link href={'/register'}>Create Account</Link>
+                            {/* <Link href={'/register'}>Create Account</Link> */}
                         </>
                     )}
                     

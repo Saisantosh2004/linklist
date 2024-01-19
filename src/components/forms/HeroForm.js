@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { redirect, useRouter } from "next/navigation";
 
 export default function HeroForm({user}){
+    
     const router = useRouter();
     useEffect(()=>{
         if(

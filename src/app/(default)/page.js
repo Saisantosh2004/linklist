@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className='text-6xl font-bold '>
             Your One Link<br/> To Everything
           </h1>
-          <h2 className='text-gray-500 text-xl mt-6'>
+          <h2 className='text-gray-500 text-xl mt-6 whitespace-nowrap'>
             Share your links, social profiles, contact <br/>info and more on one page
           </h2>
         </div>

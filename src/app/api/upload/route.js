@@ -1,7 +1,7 @@
 import {  PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import uniqid from "uniqid";
 
-export async function  POST(req) {
+export async function POST(req) {
     const formData = await req.formData();
 
     if(formData.has('file')){

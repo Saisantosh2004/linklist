@@ -30,3 +30,18 @@ label.input-label{
 .radio-togglers input[type="radio"]:checked + div{
   @apply bg-white text-blue-600;
 }
+
+.sortable-ghost{
+  opacity: .3;
+}
+
+.sortable{
+  touch-action: manipulation;
+}
+
+input#navCb:checked ~ aside{
+  left:0;
+}
+input#navCb:checked ~ .backdrop{
+  display: block;
+}

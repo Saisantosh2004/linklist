@@ -12,7 +12,7 @@ export default function AppSideBar(){
     const path = usePathname();
     console.log(path)
     return (
-        <nav className='inline-flex mx-auto flex-col text-center mt-12 gap-6  text-gray-500 '>
+        <nav className='inline-flex mx-auto flex-col text-center mt-8 gap-6  text-gray-500 '>
             <Link 
                 href={'/account'} 
                 className={'flex gap-4 ' + (path === '/account' ? 'text-blue-500 font-bold':'')} 
