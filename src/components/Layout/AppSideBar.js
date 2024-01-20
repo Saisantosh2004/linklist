@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 
 export default function AppSideBar(){
     const path = usePathname();
-    console.log(path)
+    // console.log(path)
     return (
         <nav className='inline-flex mx-auto flex-col text-center mt-8 gap-6  text-gray-500 '>
             <Link 

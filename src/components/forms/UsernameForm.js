@@ -2,7 +2,7 @@
 
 
 import GrabUserName from "@/actions/GrabUserName";
-import UsernameFormResult from "@/components/formResults/UsernameFormResult";
+// import UsernameFormResult from "@/components/formResults/UsernameFormResult";
 import { useState } from "react";
 import { redirect } from "next/navigation";
 import SubmitButton from "../buttons/SubmitButton";

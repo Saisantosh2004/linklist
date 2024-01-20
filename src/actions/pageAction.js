@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
 
 export async function savePageSettings(formData){
-    mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI);
 
     const session = await getServerSession(authOptions);
     if(session){

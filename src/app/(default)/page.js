@@ -6,6 +6,7 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export default function Home() {
   const session =  getServerSession(authOptions);
+  
   return (
     <div>
       <section className='pt-32'>

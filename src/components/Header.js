@@ -5,13 +5,19 @@ import LogoutButton from './buttons/LogoutButton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { Page } from '@/models/Page';
+import mongoose from 'mongoose';
+import { redirect } from 'next/navigation';
 
 export default async function Header(){
     const session = await getServerSession(authOptions);
 
-    if(session){
-        const page = await Page.findOne({owner:session?.user?.email});
+    await mongoose.connect(process.env.MONGO_URI);
+
+    if(!session){
+        redirect("/")
     }
+
+    const page = await Page.findOne({owner:session?.user?.email});
 
     return (
         <header className='bg-white border-b py-4'>

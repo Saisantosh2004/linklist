@@ -13,7 +13,7 @@ export default async function AccountPage({searchParams}){
     const session = await getServerSession(authOptions);
     const desiredUsername = searchParams?.desiredUsername;
 
-    mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI);
     
     if(!session){
         return redirect("/")
