@@ -10,10 +10,11 @@ import mongoose from "mongoose";
 import {getServerSession} from "next-auth";
 import {redirect} from "next/navigation";
 import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
-
+// import { useRouter } from 'next/router';
 
 export default async function AnalyticsPage() {
     await mongoose.connect(process.env.MONGO_URI);
+    // const router = useRouter();
     const session = await getServerSession(authOptions);
     if (!session) {
         return redirect('/');

@@ -7,16 +7,19 @@ import { useState } from "react";
 import { redirect } from "next/navigation";
 import SubmitButton from "../buttons/SubmitButton";
 import RightIcon from "../icons/RightIcon";
+import { useRouter } from 'next/router';
 
 export default function UsernameForm({desiredUsername}) {
 
     const [taken, setTaken] = useState(false);
 
+    // const router = useRouter();
+
     async function handleAction(formData){
         const result = await GrabUserName(formData);
         setTaken(result === false);
         if(result){
-            redirect("/account?created="+formData.get('username'));
+            redirect('/account?created='+formData.get('username'));
         }
     }
 

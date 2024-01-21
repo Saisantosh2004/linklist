@@ -160,8 +160,6 @@ export default function PageSettingsForm({page,user}){
                             </SubmitButton>
                         </div>
                     </div>
-
-
                 </form>
             </SectionBox>
         </div>

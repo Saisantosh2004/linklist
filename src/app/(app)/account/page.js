@@ -8,23 +8,29 @@ import PageSettingsForm from "@/components/forms/PageSettingsForm";
 import PageButtonsForm from "@/components/forms/PageButtonsForm";
 import PageLinksForm from "@/components/forms/PageLinksForm";
 import cloneDeep from "clone-deep";
+// import { useRouter } from 'next/router';
 
 export default async function AccountPage({searchParams}){
     const session = await getServerSession(authOptions);
+    // const router = useRouter();
     const desiredUsername = searchParams?.desiredUsername;
 
     await mongoose.connect(process.env.MONGO_URI);
     
     if(!session){
-        return redirect("/")
+        return redirect('/');
     }
 
     const page = await Page.findOne({owner: session?.user?.email});
-    const leanPage = cloneDeep(page.toJSON())
-    leanPage._id = leanPage._id.toString();
+
+    // if(page){
+        
+    // }
 
 
     if(page){
+        const leanPage = cloneDeep(page.toJSON())
+        leanPage._id = leanPage._id.toString();
         return (
             <>
                 <PageSettingsForm page={leanPage} user={session?.user}/>

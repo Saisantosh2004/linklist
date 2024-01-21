@@ -8,14 +8,15 @@ import { Page } from '@/models/Page';
 import mongoose from 'mongoose';
 import { redirect } from 'next/navigation';
 
+
 export default async function Header(){
     const session = await getServerSession(authOptions);
-
+    
     await mongoose.connect(process.env.MONGO_URI);
 
-    if(!session){
-        redirect("/")
-    }
+    // if(!session){
+    //     return redirect('/')
+    // }
 
     const page = await Page.findOne({owner:session?.user?.email});
 
@@ -38,7 +39,7 @@ export default async function Header(){
                 <nav className='flex items-center gap-4 text-sm text-slate-500'>
                     {!!session && (
                         <>
-                            <Link href={'/account'}>{page.displayName} </Link>
+                            <Link href={'/account'}>{session?.user?.name} </Link>
                             <LogoutButton/>
                         </>
                     ) }

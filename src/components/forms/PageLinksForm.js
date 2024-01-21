@@ -154,9 +154,8 @@ export default function PageLinksForm({page,user}){
                     </SubmitButton>
                 </div>
 
-           </form>
+            </form>
 
-          
         </SectionBox>
     )
 }

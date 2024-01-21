@@ -29,7 +29,9 @@ function UpperFirst(str){
 
 export default function PageButtonsForm({user,page}){
     
-
+    // console.log(page)
+    // const b=page.buttons;
+    // console.log(b)
     const pageSavedButtonKeys = Object.keys(page.buttons);
     const pageSavedButtonsInfo = pageSavedButtonKeys.map(k => allButtons.find(b => b.key === k));
     const [activeButtons,setActiveButtons] = useState(pageSavedButtonsInfo);
